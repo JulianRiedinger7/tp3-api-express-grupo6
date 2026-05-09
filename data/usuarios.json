@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "nombre": "Carlos",
+    "mail": "carlos@mail.com",
+    "contrasena": "1234",
+    "fecha_registro": "2024-11-10",
+    "foto": "usuario1.jpg",
+    "ultimos_pedidos": [
+      {
+        "id": 101,
+        "idServicio": 2,
+        "nombre_servicio": "Elden Ring",
+        "fecha": "2025-03-15"
+      },
+      {
+        "id": 102,
+        "idServicio": 8,
+        "nombre_servicio": "Red Dead Redemption 2",
+        "fecha": "2025-02-20"
+      },
+      {
+        "id": 103,
+        "idServicio": 11,
+        "nombre_servicio": "Ghost of Tsushima",
+        "fecha": "2025-01-05"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "nombre": "Laura",
+    "mail": "laura@mail.com",
+    "contrasena": "abcd",
+    "fecha_registro": "2025-01-22",
+    "foto": "usuario2.jpg",
+    "ultimos_pedidos": [
+      {
+        "id": 104,
+        "idServicio": 4,
+        "nombre_servicio": "Hogwarts Legacy",
+        "fecha": "2025-03-30"
+      },
+      {
+        "id": 105,
+        "idServicio": 6,
+        "nombre_servicio": "Baldur's Gate 3",
+        "fecha": "2025-02-14"
+      },
+      {
+        "id": 106,
+        "idServicio": 14,
+        "nombre_servicio": "Alan Wake 2",
+        "fecha": "2025-01-18"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "nombre": "Marcos",
+    "mail": "marcos@mail.com",
+    "contrasena": "pass123",
+    "fecha_registro": "2025-02-08",
+    "foto": "usuario3.jpg",
+    "ultimos_pedidos": [
+      {
+        "id": 107,
+        "idServicio": 1,
+        "nombre_servicio": "God of War Ragnarök",
+        "fecha": "2025-04-01"
+      },
+      {
+        "id": 108,
+        "idServicio": 9,
+        "nombre_servicio": "Demon's Souls",
+        "fecha": "2025-03-10"
+      },
+      {
+        "id": 109,
+        "idServicio": 15,
+        "nombre_servicio": "Lies of P",
+        "fecha": "2025-02-25"
+      }
+    ]
+  }
+]
