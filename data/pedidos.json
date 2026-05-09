@@ -1,0 +1,47 @@
+[
+  {
+    "id": 201,
+    "nombre": "Carlos",
+    "apellido": "Ramírez",
+    "email": "carlos@mail.com",
+    "idServicio": 3,
+    "calle": "Av. Rivadavia",
+    "numero": "1423",
+    "codigo_postal": "1033",
+    "ciudad": "Buenos Aires",
+    "metodo_pago": "tarjeta",
+    "numero_tarjeta": "4111111111111111",
+    "vencimiento": "08/27",
+    "codigo_seguridad": "123"
+  },
+  {
+    "id": 202,
+    "nombre": "Laura",
+    "apellido": "Gómez",
+    "email": "laura@mail.com",
+    "idServicio": 5,
+    "calle": "Belgrano",
+    "numero": "856",
+    "codigo_postal": "8000",
+    "ciudad": "Bahía Blanca",
+    "metodo_pago": "tarjeta",
+    "numero_tarjeta": "5500005555555559",
+    "vencimiento": "11/26",
+    "codigo_seguridad": "456"
+  },
+  {
+    "id": 203,
+    "nombre": "Marcos",
+    "apellido": "Fernández",
+    "email": "marcos@mail.com",
+    "idServicio": 7,
+    "calle": "San Martín",
+    "numero": "2201",
+    "codigo_postal": "5000",
+    "ciudad": "Córdoba",
+    "metodo_pago": "efectivo",
+    "numero_tarjeta": "",
+    "vencimiento": "",
+    "codigo_seguridad": ""
+  }
+]

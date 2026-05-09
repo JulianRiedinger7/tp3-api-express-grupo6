@@ -1,0 +1,137 @@
+[
+  {
+    "id": 1,
+    "nombre": "God of War Ragnarök",
+    "descripcion": "Kratos y Atreus emprenden un viaje por los nueve reinos en busca de respuestas mientras se preparan para el Ragnarök.",
+    "imagen": "god-of-war-ragnarok.jpg",
+    "puntaje": 9.5,
+    "stock": 8,
+    "precio": 15000
+  },
+  {
+    "id": 2,
+    "nombre": "Elden Ring",
+    "descripcion": "Un RPG de acción en mundo abierto desarrollado junto a George R.R. Martin. Explorá las Tierras Intermedias y convertite en el Señor del Anillo Áureo.",
+    "imagen": "elden-ring.jpg",
+    "puntaje": 9.8,
+    "stock": 5,
+    "precio": 13500
+  },
+  {
+    "id": 3,
+    "nombre": "The Last of Us Part I",
+    "descripcion": "Joel escolta a Ellie a través de un Estados Unidos post-apocalíptico infestado de infectados y supervivientes peligrosos.",
+    "imagen": "the-last-of-us.jpg",
+    "puntaje": 9.6,
+    "stock": 10,
+    "precio": 12000
+  },
+  {
+    "id": 4,
+    "nombre": "Hogwarts Legacy",
+    "descripcion": "Viví la experiencia de ser estudiante en Hogwarts en el siglo XIX. Dominá la magia y descubrí un antiguo secreto que amenaza el mundo mágico.",
+    "imagen": "hogwarts-legacy.jpg",
+    "puntaje": 8.7,
+    "stock": 6,
+    "precio": 11000
+  },
+  {
+    "id": 5,
+    "nombre": "Spider-Man 2",
+    "descripcion": "Peter Parker y Miles Morales se enfrentan a nuevas amenazas en Nueva York, incluyendo a Venom y Kraven el Cazador.",
+    "imagen": "spider-man-2.jpg",
+    "puntaje": 9.2,
+    "stock": 7,
+    "precio": 14500
+  },
+  {
+    "id": 6,
+    "nombre": "Baldur's Gate 3",
+    "descripcion": "Un RPG por turnos ambientado en el universo de Dungeons & Dragons. Cada decisión importa en esta aventura épica llena de consecuencias.",
+    "imagen": "baldurs-gate-3.jpg",
+    "puntaje": 9.9,
+    "stock": 4,
+    "precio": 12500
+  },
+  {
+    "id": 7,
+    "nombre": "Cyberpunk 2077",
+    "descripcion": "En la megalópolis de Night City, V lucha por sobrevivir en un mundo dominado por corporaciones, implantes cibernéticos y violencia.",
+    "imagen": "cyberpunk-2077.jpg",
+    "puntaje": 8.5,
+    "stock": 12,
+    "precio": 9000
+  },
+  {
+    "id": 8,
+    "nombre": "Red Dead Redemption 2",
+    "descripcion": "La historia de Arthur Morgan y la banda Van der Linde en el ocaso del salvaje oeste americano. Una de las narrativas más ricas en videojuegos.",
+    "imagen": "red-dead-redemption-2.jpg",
+    "puntaje": 9.7,
+    "stock": 9,
+    "precio": 10000
+  },
+  {
+    "id": 9,
+    "nombre": "Demon's Souls",
+    "descripcion": "El clásico remake del juego que definió el género Souls. Combate desafiante, mundo oscuro y un diseño de niveles magistral.",
+    "imagen": "demons-souls.jpg",
+    "puntaje": 8.8,
+    "stock": 3,
+    "precio": 10500
+  },
+  {
+    "id": 10,
+    "nombre": "Horizon Forbidden West",
+    "descripcion": "Aloy viaja al oeste prohibido para enfrentar una amenaza que podría extinguir toda vida en la Tierra. Mundo abierto con máquinas imponentes.",
+    "imagen": "horizon-forbidden-west.jpg",
+    "puntaje": 8.9,
+    "stock": 6,
+    "precio": 11500
+  },
+  {
+    "id": 11,
+    "nombre": "Ghost of Tsushima",
+    "descripcion": "Japón feudal, 1274. Jin Sakai debe convertirse en el Fantasma para liberar Tsushima de la invasión mongola. Arte visual y combate excepcionales.",
+    "imagen": "ghost-of-tsushima.jpg",
+    "puntaje": 9.1,
+    "stock": 5,
+    "precio": 10000
+  },
+  {
+    "id": 12,
+    "nombre": "Final Fantasy XVI",
+    "descripcion": "Un reino en guerra, dominios de cristal y Eikons devastadores. La saga más icónica del RPG japonés apuesta por la acción en tiempo real.",
+    "imagen": "final-fantasy-xvi.jpg",
+    "puntaje": 8.6,
+    "stock": 0,
+    "precio": 13000
+  },
+  {
+    "id": 13,
+    "nombre": "Returnal",
+    "descripcion": "Selene queda atrapada en un loop temporal en un planeta alienígena hostil. Roguelike de acción con una narrativa perturbadora y desafiante.",
+    "imagen": "returnal.jpg",
+    "puntaje": 8.7,
+    "stock": 4,
+    "precio": 11000
+  },
+  {
+    "id": 14,
+    "nombre": "Alan Wake 2",
+    "descripcion": "El escritor Alan Wake regresa en una secuela de terror psicológico que mezcla realidad y ficción de maneras inesperadas y perturbadoras.",
+    "imagen": "alan-wake-2.jpg",
+    "puntaje": 9.0,
+    "stock": 7,
+    "precio": 12000
+  },
+  {
+    "id": 15,
+    "nombre": "Lies of P",
+    "descripcion": "Una reimaginación oscura de Pinocho ambientada en una ciudad europea a fines del siglo XIX. Souls-like con sistema de mentiras que afecta el final.",
+    "imagen": "lies-of-p.jpg",
+    "puntaje": 8.4,
+    "stock": 5,
+    "precio": 9500
+  }
+]
