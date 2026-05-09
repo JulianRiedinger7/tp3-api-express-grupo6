@@ -29,7 +29,8 @@ Backend
 
 GET /servicios — lee data/servicios.json y devuelve el array completo
 El JSON debe tener más de 13 servicios (requisito del enunciado)
-Cada servicio con id, nombre, descripción, imagen, precio, stock
+Cada servicio con id, nombre, descripción, imagen, precio, stock.
+Agregado de endpoint para busqueda por nombre del servicio.
 
 Frontend
 
@@ -181,6 +182,15 @@ Retorna: Objeto con formato:
 ```json
 {
     "codigo": Codigo HTTP (200 ok o 500 Error),
+    "servicios": Array de instancias de 'ServiciosModel' (vacio si error)
+}
+```
+3. getPorNombre
+A partir del un string recibido por parametro, realiza un filtrado y retorna un json con las coincidencias.
+Retorna: Objeto con formato:
+```json
+{
+    "codigo": Codigo HTTP (200 ok, 500 Error, 400 o 404 si es error del cliente),
     "servicios": Array de instancias de 'ServiciosModel' (vacio si error)
 }
 ```
