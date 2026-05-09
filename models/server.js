@@ -15,6 +15,7 @@ class Server {
   }
 
   rutas () {
+    this.app.use('/', require('../routes/ServiciosRoutes'))
     // manejo de errores
     this.app.use((req, res, next) => {
       return res.status(400).json({ msg: 'Error.' })
