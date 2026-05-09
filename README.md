@@ -1,4 +1,4 @@
-#Trabajo Práctico N°3:
+# Trabajo Práctico N°3:
 
 Bienvenid@ al repositorio del Trabajo Práctico N°3 para la asignatura de Programación 3. En este proyecto el Grupo 6 ha desarrollado una API que administra los datos de Servicios-Pedidos-Usuarios-Equipo para integrarlo con el front del TP1
 
@@ -104,7 +104,7 @@ Si hay stock devuelve 200 con confirmación, si no hay devuelve 400
 Frontend
 
 Reemplaza el contenido estático de pedido.html del TP1
-Al cargar la página hace fetch a GET /servicios y puebla el <select> dinámicamente
+Al cargar la página hace fetch a GET /servicios y puebla el select dinámicamente
 Las opciones sin stock se muestran deshabilitadas en el select
 Al enviar el formulario hace fetch con method: POST a /pedidos y muestra el resultado
 
