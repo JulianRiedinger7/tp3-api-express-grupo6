@@ -5,7 +5,7 @@ class EquipoModel {
     this.apellido = apellido
     this.rol = rol
     this.imagen = imagen
-    this.acercaDe = acercaDe
+    this.acerca = acercaDe
   }
 
   static getIntegranteDeJson (objeto) {
@@ -15,7 +15,7 @@ class EquipoModel {
       objeto.apellido,
       objeto.rol,
       objeto.imagen,
-      objeto.acercaDe
+      objeto.acerca_de
     )
   }
 }
