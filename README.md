@@ -3,26 +3,30 @@
 Bienvenid@ al repositorio del Trabajo Práctico N°3 para la asignatura de Programación 3. En este proyecto el Grupo 6 ha desarrollado una API que administra los datos de Servicios-Pedidos-Usuarios-Equipo para integrarlo con el front del TP1
 
 ## 🎯 Objetivos del TP
-* Aplicar los conocimientos vistos en clase sobre modularización, Node.js, express y
-otros módulos
-*​ Instalación de paquetes por medio de la terminal con ‘npm’.
-*​ Aplicar conocimientos iniciales de POO (Programación Orientada a Objetos).
-*​ Gestionar datos mediante archivos JSON para simular una base de datos.
-*​ Diseñar y desarrollar endpoints para una API REST, utilizando los métodos ‘GET’ y
-‘POST’.
-*​ Utilizar las herramientas de ‘render.com’ para hacer un deploy de una API.
-*​ Trabajar en equipo utilizando herramientas de Git y GitHub.
+
+- Aplicar los conocimientos vistos en clase sobre modularización, Node.js, express y
+  otros módulos
+  *​ Instalación de paquetes por medio de la terminal con ‘npm’.
+  *​ Aplicar conocimientos iniciales de POO (Programación Orientada a Objetos).
+  *​ Gestionar datos mediante archivos JSON para simular una base de datos.
+  *​ Diseñar y desarrollar endpoints para una API REST, utilizando los métodos ‘GET’ y
+  ‘POST’.
+  *​ Utilizar las herramientas de ‘render.com’ para hacer un deploy de una API.
+  *​ Trabajar en equipo utilizando herramientas de Git y GitHub.
 
 ## 👥 Integrantes - Grupo 6
-* Julieta Dabús
-* Alejandro Lucas Baldres
-* Julian Riedinger
-* Marianela Belardinelli
-* Clara Zivano
-* Matías F. Ledesma González
+
+- Julieta Dabús
+- Alejandro Lucas Baldres
+- Julian Riedinger
+- Marianela Belardinelli
+- Clara Zivano
+- Matías F. Ledesma González
 
 ## 📋 Organización
+
 ### División del Trabajo
+
 **Alejandro Lucas Baldres - Servicios: listado completo**
 
 Backend
@@ -36,9 +40,8 @@ Frontend
 
 Reemplaza los datos hardcodeados de servicios.html del TP1
 Función asíncrona con fetch + try/catch que consume GET /servicios
-Refactorizacion de Servicios: Renderiza las cards dinámicamente con JS en lugar 
+Refactorizacion de Servicios: Renderiza las cards dinámicamente con JS en lugar
 de tenerlas en el HTML
-
 
 **Matías F. Ledesma González — Servicios: detalle individual**
 
@@ -64,7 +67,6 @@ Frontend
 Reemplaza los datos hardcodeados de equipo.html del TP1
 Función asíncrona con fetch + try/catch que consume GET /equipo
 Renderiza las cards del equipo dinámicamente
-
 
 **Marianela Belardinelli — Login**
 
@@ -93,7 +95,6 @@ Lee el id guardado en localStorage por el login
 Función asíncrona que consume GET /perfil/:id y renderiza los datos del usuario
 Si no hay sesión activa (no hay id en localStorage), redirige a login.html
 
-
 **Julieta Dabús — Formulario de pedido**
 
 Backend
@@ -109,39 +110,47 @@ Al cargar la página hace fetch a GET /servicios y puebla el select dinámicamen
 Las opciones sin stock se muestran deshabilitadas en el select
 Al enviar el formulario hace fetch con method: POST a /pedidos y muestra el resultado
 
-
 ## 🛠️ Tecnologías Utilizadas
-* HTML5
-* CSS3
-* JavaScript
-* Flexbox
-* Git / GitHub
-* NodeJs
+
+- HTML5
+- CSS3
+- JavaScript
+- Flexbox
+- Git / GitHub
+- NodeJs
 
 ## Metodologías utilizadas
+
 Esta sección define el flujo de trabajo y las convenciones de nomenclatura para la gestión de ramas en el proyecto, asegurando un historial limpio y una integración controlada a través de GitHub.
 
 ### Estructura de Ramas Principales
+
 El proyecto se rige por dos ramas estables de larga duración:
-* Main: Es la rama principal del proyecto. Contiene la versión lista para entregar, por lo que sólo debe recibir código que haya sido probado y aprobado.
-* Dev: Es la rama de integración. Aquí se consolidan todas las funcionalidades y correcciones antes de pasar a la rama principal. Es el entorno de desarrollo activo.
+
+- Main: Es la rama principal del proyecto. Contiene la versión lista para entregar, por lo que sólo debe recibir código que haya sido probado y aprobado.
+- Dev: Es la rama de integración. Aquí se consolidan todas las funcionalidades y correcciones antes de pasar a la rama principal. Es el entorno de desarrollo activo.
 
 ### Convenciones para Ramas Personales
+
 Cada integrante del grupo trabajará en ramas creadas a partir de Dev. El nombre de estas ramas debe seguir una estructura específica según el propósito de la tarea:
 
 A. Nuevas Funcionalidades (Features) Si la tarea consiste en agregar una nueva característica o componente al proyecto:
-* Formato: feature/agregado-Iniciales
-* Ejemplo: feature/formulario-JD
+
+- Formato: feature/agregado-Iniciales
+- Ejemplo: feature/formulario-JD
 
 B. Corrección de Errores (Fixes) Si la tarea consiste en solucionar un error o realizar un ajuste técnico:
-* Formato: fix/correccion-Iniciales
-* Ejemplo: fix/validaciones-JD
+
+- Formato: fix/correccion-Iniciales
+- Ejemplo: fix/validaciones-JD
 
 C. Documentación (Docs) Si la tarea consiste en generar o modificar documentación:
-* Formato: docs/descripcion-Iniciales
-* Ejemplo: docs/readme-ALL
+
+- Formato: docs/descripcion-Iniciales
+- Ejemplo: docs/readme-ALL
 
 ## Resumen de Flujo de Trabajo
+
 1. Estar posicionado en Dev y hacer un git pull para tener lo último.
 2. Crear la rama personal: git checkout -b feature/mi-tarea-AB
 3. Realizar los cambios y hacer commit.
@@ -154,43 +163,97 @@ C. Documentación (Docs) Si la tarea consiste en generar o modificar documentaci
 ## Documentación Técnica
 
 ## Modelos
+
 ### ServiciosModel
+
 1. Constructor
-Crea una instancia de ServiciosModel
-Detalle de parametros:
-* id: Identificador unico del servicio
-* nombre: Nombre del Juego o servicio
-* descripcion: Descripcion detallada del juego
-* rutaImagen: Nombre del archivo de imagen. Ej. no-mans-sky.jpg
-* puntaje: Puntuacion del Juego (0-5)
-* stock: Cantidad de licencias disponibles
-* precio: Precio en Pesos
+   Crea una instancia de ServiciosModel
+   Detalle de parametros:
+
+- id: Identificador unico del servicio
+- nombre: Nombre del Juego o servicio
+- descripcion: Descripcion detallada del juego
+- rutaImagen: Nombre del archivo de imagen. Ej. no-mans-sky.jpg
+- puntaje: Puntuacion del Juego (0-5)
+- stock: Cantidad de licencias disponibles
+- precio: Precio en Pesos
 
 2. getServiciosDeJson
-Metodo estatico que recibe un JSON plano y lo convierte en una instancia de ServiciosModel.
-Retorna un objeto del tipo ServiciosModel
+   Metodo estatico que recibe un JSON plano y lo convierte en una instancia de ServiciosModel.
+   Retorna un objeto del tipo ServiciosModel
+
+### EquipoModel
+
+1. Constructor
+
+Crea una instancia de EquipoModel
+Detalle de parámetros:
+
+id: Identificador único del integrante
+nombre: Nombre del integrante
+apellido: Apellido del integrante
+rol: Rol o cargo dentro de la tienda
+imagen: Nombre del archivo de imagen. Ej. morales.jpg
+acercaDe: Descripción personal del integrante
+
+2. getIntegranteDeJson
+
+Método estático que recibe un objeto JSON plano y lo convierte en una instancia de EquipoModel.
+Retorna un objeto del tipo EquipoModel
 
 ## Controllers
+
 ### ServiciosController
+
 1. getServicios
-Obtiene todos los servicios desde el archivo JSON y envía la respuesta HTTP.
-Retorna: Envía una respuesta JSON con el array de servicios o un error
+   Obtiene todos los servicios desde el archivo JSON y envía la respuesta HTTP.
+   Retorna: Envía una respuesta JSON con el array de servicios o un error
 
 2. getJson
-Lee el archivo JSON desde la ruta especificada y lo convierte en una lista de instancias de ServiciosModel
-Retorna: Objeto con formato:
+   Lee el archivo JSON desde la ruta especificada y lo convierte en una lista de instancias de ServiciosModel
+   Retorna: Objeto con formato:
+
 ```json
 {
     "codigo": Codigo HTTP (200 ok o 500 Error),
     "servicios": Array de instancias de 'ServiciosModel' (vacio si error)
 }
 ```
+
 3. getPorNombre
-A partir del un string recibido por parametro, realiza un filtrado y retorna un json con las coincidencias.
-Retorna: Objeto con formato:
+   A partir del un string recibido por parametro, realiza un filtrado y retorna un json con las coincidencias.
+   Retorna: Objeto con formato:
+
 ```json
 {
     "codigo": Codigo HTTP (200 ok, 500 Error, 400 o 404 si es error del cliente),
     "servicios": Array de instancias de 'ServiciosModel' (vacio si error)
 }
 ```
+
+### EquipoController
+
+1. getEquipo
+
+Obtiene todos los integrantes del equipo desde el archivo JSON y envía la respuesta HTTP.
+Retorna: Envía una respuesta JSON con el array de integrantes o un error
+
+```json
+{
+  "mensaje": "Solo se envia si hay algun tipo de error o datos vacios",
+  "equipo": "Array de instancias de EquipoModel (vacío si error)"
+}
+```
+
+### Utils
+
+## funciones.js
+
+1. getJson
+
+Lee un archivo JSON desde la ruta especificada y devuelve su contenido parseado como objeto o array de JavaScript.
+Parámetros:
+
+ruta: Ruta absoluta al archivo JSON
+
+Retorna: El contenido del archivo parseado, o lanza un error si el archivo no existe o no es un JSON válido.
