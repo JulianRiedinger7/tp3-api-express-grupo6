@@ -12,9 +12,11 @@ class Server {
 
   middleware () {
     this.app.use(cors())
+    this.app.use(express.json()) // para parsear JSON en el body, sino req.body llega undefined
   }
 
   rutas () {
+    this.app.use('/login', require('../routes/loginRoutes'));
     // manejo de errores
     this.app.use((req, res, next) => {
       return res.status(400).json({ msg: 'Error.' })
@@ -29,7 +31,7 @@ class Server {
     })
   }
 
-  listen () {
+  listen () { 
     this.app.listen(this.port, () => {
       console.log(`La API esta escuchando el el puerto: ${this.port}`)
     })
