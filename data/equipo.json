@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "nombre": "Santiago",
+    "apellido": "Morales",
+    "rol": "Gerente de Tienda",
+    "imagen": "morales.jpg",
+    "acerca_de": "Con más de 10 años en el mundo del retail de videojuegos, Santiago lidera el equipo con pasión por la industria y un conocimiento enciclopédico de cada consola que salió al mercado desde los 90."
+  },
+  {
+    "id": 2,
+    "nombre": "Valentina",
+    "apellido": "Herrera",
+    "rol": "Asesora de Ventas",
+    "imagen": "herrera.jpg",
+    "acerca_de": "Valentina es la primera en recomendar el juego perfecto según tu perfil. Especialista en RPGs y juegos de aventura, nunca falla cuando se trata de encontrar el título que estabas buscando sin saberlo."
+  },
+  {
+    "id": 3,
+    "nombre": "Rodrigo",
+    "apellido": "Castillo",
+    "rol": "Asesor de Ventas",
+    "imagen": "castillo.jpg",
+    "acerca_de": "Fanático de los shooters competitivos y los Souls-like. Rodrigo conoce cada detalle técnico de las plataformas disponibles y ayuda a los clientes a elegir la mejor configuración para su setup."
+  },
+  {
+    "id": 4,
+    "nombre": "Florencia",
+    "apellido": "Aguirre",
+    "rol": "Encargada de Stock e Inventario",
+    "imagen": "aguirre.jpg",
+    "acerca_de": "Florencia se asegura de que los títulos más buscados nunca falten en la tienda. Organizada y meticulosa, es la responsable de que cada lanzamiento esté disponible el día uno."
+  },
+  {
+    "id": 5,
+    "nombre": "Tomás",
+    "apellido": "Villanueva",
+    "rol": "Técnico de Hardware",
+    "imagen": "villanueva.jpg",
+    "acerca_de": "Tomás repara consolas, instala actualizaciones y resuelve cualquier problema técnico que traigan los clientes. Si tu PS5 no enciende, él tiene la solución."
+  },
+  {
+    "id": 6,
+    "nombre": "Camila",
+    "apellido": "Ríos",
+    "rol": "Community Manager",
+    "imagen": "rios.jpg",
+    "acerca_de": "Camila gestiona las redes sociales de la tienda y mantiene informada a la comunidad sobre lanzamientos, ofertas y torneos. Streamer en sus ratos libres y fan incondicional de los juegos de terror."
+  }
+]
