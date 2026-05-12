@@ -86,39 +86,37 @@ const getServiciosID = async (req, res) => {
   console.log(new Date().toLocaleString() + ` - Se recibio: ${id}`)
   let salida
   if (!id || isNaN(id)) {
-    salida = { codigo: HTTP_ERROR_NO_ENCONTRADO, servicios: [] } //salida es una caja q pongo lo que le quiero avisar al usaurio
+    salida = { codigo: HTTP_ERROR_NO_ENCONTRADO, servicio:{} } //salida es una caja q pongo lo que le quiero avisar al usaurio
   } else {
     try {
-      const servicios = await fs.readFile(RUTA_JSON_SERVICIOS, 'utf-8') //abre el archivo json, definida RURA_JSON_SERVICIOS arriba como cte
-      const serviciosJson = JSON.parse(servicios)
-      const jsonFiltrado = serviciosJson.filter(
-        (ser) => ser.id === parseInt(id)
+      const servicio = await fs.readFile(RUTA_JSON_SERVICIOS, 'utf-8') //abre el archivo json, definida RURA_JSON_SERVICIOS arriba como cte
+      const serviciosJson = JSON.parse(servicio)
+      const jsonFiltrado = serviciosJson.find(
+        (servicio) => servicio.id === parseInt(id)
       )
       console.log(
         new Date().toLocaleString() +
           ` - jsonFiltrado: ${JSON.stringify(jsonFiltrado)}`
       )
-      if (jsonFiltrado.length === 0) {
+      if (!jsonFiltrado) {
         console.log(
           new Date().toLocaleString() + ' - ' + HTTP_ERROR_NO_ENCONTRADO
         )
-        salida = { codigo: HTTP_ERROR_NO_ENCONTRADO, servicios: [] }
+        salida = { codigo: HTTP_ERROR_NO_ENCONTRADO, servicio: {} }
       } else {
         console.log(new Date().toLocaleString() + ' - ' + HTTP_OK)
         salida = {
           codigo: HTTP_OK,
-          servicios: jsonFiltrado.map((ser) =>
-            ServiciosModel.getServicioDeJson(ser)
-          )
+          servicio: ServiciosModel.getServicioDeJson(jsonFiltrado)
         }
       }
     } catch (error) {
       console.log(new Date().toLocaleString() + ' - ' + error)
-      salida = { codigo: HTTP_SERVER_ERROR, servicios: [] }
+      salida = { codigo: HTTP_SERVER_ERROR, servicio: {} }
     }
   }
 
-  res.status(salida.codigo).json(salida.servicios)
+  res.status(salida.codigo).json(salida.servicio)
 }
 
 module.exports = { getServicios, getPorNombre, getServiciosID }
