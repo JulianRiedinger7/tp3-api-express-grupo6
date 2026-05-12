@@ -1,3 +1,5 @@
+const fs = require('fs').promises
+
 class ServiciosModel {
   // Constructor
   constructor (id, nombre, descripcion, rutaImagen, puntaje, stock, precio) {
@@ -10,7 +12,16 @@ class ServiciosModel {
     this.precio = precio
   }
 
-  static getServicioDeJson (objeto) {
+  static async getJson (ruta) {
+    console.log(new Date().toLocaleString() + ' - Comienzo apertura del JSON')
+    const servicios = await fs.readFile(ruta, 'utf-8')
+    console.log(servicios)
+    const serviciosJson = JSON.parse(servicios)
+    return serviciosJson.map(
+      serv => ServiciosModel.#privateGetServicioDeJson(serv))
+  }
+
+  static #privateGetServicioDeJson (objeto) {
     return new ServiciosModel(
       objeto.id,
       objeto.nombre,

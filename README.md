@@ -201,6 +201,22 @@ acercaDe: Descripción personal del integrante
 Método estático que recibe un objeto JSON plano y lo convierte en una instancia de EquipoModel.
 Retorna un objeto del tipo EquipoModel
 
+### Login Model
+
+1. Constructor
+Crea una instancia de UsuarioModel, con los siguientes parámetros:
+
+id: identificador de usuario
+nombre: nombre de usuario
+mail: correo de usuario
+contrasena: contraseña de usuario
+fechaRegistro: fecha en que el usuario se registró
+foto: foto o ruta de la imagen de perfil
+pedidos: arreglo con los ultimos pedidos que realizó
+
+2. getUsuarioDeJson
+Método estático que recibe un objeto JSON plano y lo convierte en una instancia de UsuarioModel. Se utiliza para transformar los datos obtenidos desde el archivo usuarios.json en objetos del modelo.
+
 ## Controllers
 
 ### ServiciosController
