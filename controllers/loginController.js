@@ -60,21 +60,6 @@ const login = async (req, res) => {
             message: 'Error interno del servidor'
         });
     }
+};
 
-    // si todo ok, devuelvo datos de usuario
-    return res.status(200).json({
-      id: usuario.id,
-      email: usuario.mail,
-      nombre: usuario.nombre,
-      message: 'Login exitoso'
-    })
-  } catch (error) {
-    console.error('Error en login:', error)
-
-    return res.status(500).json({
-      message: 'Error interno del servidor'
-    })
-  }
-}
-
-module.exports = { login }
+module.exports = { login };
