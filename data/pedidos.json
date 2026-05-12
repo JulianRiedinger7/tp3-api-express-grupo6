@@ -43,5 +43,17 @@
     "numero_tarjeta": "",
     "vencimiento": "",
     "codigo_seguridad": ""
+  },
+  {
+    "id": 4,
+    "producto": "1",
+    "nombre": "Juan",
+    "apellido": "Pérez",
+    "email": "juan@gmail.com",
+    "calle": "San Martín",
+    "numero": "123",
+    "ciudad": "Bahía Blanca",
+    "CP": "8000",
+    "opciones_de_pago": "debito"
   }
 ]
