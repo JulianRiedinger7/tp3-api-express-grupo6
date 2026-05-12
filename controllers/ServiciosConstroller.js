@@ -80,16 +80,16 @@ const getPorNombre = async (req, res) => {
   res.status(salida.codigo).json(salida.servicios)
 }
 
-//Matias Ledesma, preguntar porque es igual al de nombre
+// Matias Ledesma, preguntar porque es igual al de nombre
 const getServiciosID = async (req, res) => {
   const { id } = req.params
   console.log(new Date().toLocaleString() + ` - Se recibio: ${id}`)
   let salida
   if (!id || isNaN(id)) {
-    salida = { codigo: HTTP_ERROR_NO_ENCONTRADO, servicio:{} } //salida es una caja q pongo lo que le quiero avisar al usaurio
+    salida = { codigo: HTTP_ERROR_NO_ENCONTRADO, servicio: {} } // salida es una caja q pongo lo que le quiero avisar al usaurio
   } else {
     try {
-      const servicio = await fs.readFile(RUTA_JSON_SERVICIOS, 'utf-8') //abre el archivo json, definida RURA_JSON_SERVICIOS arriba como cte
+      const servicio = await fs.readFile(RUTA_JSON_SERVICIOS, 'utf-8') // abre el archivo json, definida RURA_JSON_SERVICIOS arriba como cte
       const serviciosJson = JSON.parse(servicio)
       const jsonFiltrado = serviciosJson.find(
         (servicio) => servicio.id === parseInt(id)
