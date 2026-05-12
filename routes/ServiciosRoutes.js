@@ -6,7 +6,7 @@ const {
 
 const rutas = Router()
 
-rutas.get('/servicios/:nombre', getPorNombre)
-rutas.get('/servicios', getServicios)
+rutas.get('/:nombre', getPorNombre)
+rutas.get('/', getServicios)
 
 module.exports = rutas

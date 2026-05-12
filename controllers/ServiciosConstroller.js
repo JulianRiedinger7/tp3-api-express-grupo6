@@ -2,7 +2,6 @@
  * Controlador para la administracion de servicios mediante JSON
  */
 const ServiciosModel = require('../models/ServiciosModel')
-const fs = require('fs').promises
 const path = require('path')
 
 // Definicion de constantes
@@ -14,27 +13,21 @@ const RUTA_JSON_SERVICIOS = path.join(__dirname, '../data/servicios.json')
 
 const getServicios = async (req, res) => {
   console.log(new Date().toLocaleString() + ` - Busco el json en la ruta: ${RUTA_JSON_SERVICIOS}`)
-  const servicios = await getJson(RUTA_JSON_SERVICIOS)
-  console.log(new Date().toLocaleString() + ` - Codigo: ${servicios.codigo}`)
-  res.status(servicios.codigo).json(servicios.servicios)
-}
-
-const getJson = async (ruta) => {
-  let salida
+  let servicios = {}
   try {
-    console.log(new Date().toLocaleString() + ' - Comienzo apertura del JSON')
-    const servicios = await fs.readFile(ruta, 'utf-8')
-    const serviciosJson = JSON.parse(servicios)
-    salida = {
+    servicios = {
       codigo: HTTP_OK,
-      servicios: serviciosJson.map(
-        serv => ServiciosModel.getServicioDeJson(serv))
+      servicios: await ServiciosModel.getJson(RUTA_JSON_SERVICIOS)
     }
   } catch (error) {
-    salida = { codigo: HTTP_SERVER_ERROR, servicios: [] }
+    servicios = {
+      codigo: HTTP_SERVER_ERROR,
+      servicios: error
+    }
   }
-  console.log(new Date().toLocaleString() + ' - Fin de la funcion getJson')
-  return salida
+
+  console.log(new Date().toLocaleString() + ` - Codigo: ${servicios.codigo}`)
+  res.status(servicios.codigo).json(servicios.servicios)
 }
 
 const getPorNombre = async (req, res) => {
@@ -45,8 +38,7 @@ const getPorNombre = async (req, res) => {
     salida = { codigo: HTTP_ERROR_USUARIO, servicios: [] }
   } else {
     try {
-      const servicios = await fs.readFile(RUTA_JSON_SERVICIOS, 'utf-8')
-      const serviciosJson = JSON.parse(servicios)
+      const serviciosJson = await ServiciosModel.getJson(RUTA_JSON_SERVICIOS)
       const jsonFiltrado = serviciosJson.filter(ser => ser.nombre.toLowerCase().includes(nombre.toLowerCase()))
       console.log(new Date().toLocaleString() + ` - jsonFiltrado: ${JSON.stringify(jsonFiltrado)}`)
       if (jsonFiltrado.length === 0) {
@@ -56,8 +48,7 @@ const getPorNombre = async (req, res) => {
         console.log(new Date().toLocaleString() + ' - ' + HTTP_OK)
         salida = {
           codigo: HTTP_OK,
-          servicios: jsonFiltrado.map(ser => ServiciosModel
-            .getServicioDeJson(ser))
+          servicios: jsonFiltrado
         }
       }
     } catch (error) {
