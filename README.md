@@ -77,6 +77,7 @@ Devuelve los datos del usuario si es correcto, o 401 si falla
 Frontend
 
 Página nueva pages/login.html con formulario de email y contraseña
+Refactoreo de header para incluir botón de Login
 Función asíncrona que hace fetch con method: POST y body: JSON.stringify(...)
 Si el login es exitoso, guarda el id del usuario en localStorage y redirige al perfil
 
@@ -185,9 +186,8 @@ C. Documentación (Docs) Si la tarea consiste en generar o modificar documentaci
 ### EquipoModel
 
 1. Constructor
-
-Crea una instancia de EquipoModel
-Detalle de parámetros:
+   Crea una instancia de EquipoModel
+   Detalle de parámetros:
 
 id: Identificador único del integrante
 nombre: Nombre del integrante
@@ -197,14 +197,21 @@ imagen: Nombre del archivo de imagen. Ej. morales.jpg
 acercaDe: Descripción personal del integrante
 
 2. getIntegranteDeJson
+   Método estático que recibe un objeto JSON plano y lo convierte en una instancia de EquipoModel.
+   Retorna un objeto del tipo EquipoModel
 
-Método estático que recibe un objeto JSON plano y lo convierte en una instancia de EquipoModel.
-Retorna un objeto del tipo EquipoModel
+3. obtenerEquipo
+   Método estático asíncrono que obtiene todos los integrantes del equipo desde el archivo JSON y los convierte en instancias de EquipoModel.
+   Parámetros:
+
+ruta: Ruta absoluta al archivo JSON del equipo
+
+Retorna: Array de instancias de EquipoModel con todos los integrantes
 
 ### Login Model
 
 1. Constructor
-Crea una instancia de UsuarioModel, con los siguientes parámetros:
+   Crea una instancia de UsuarioModel, con los siguientes parámetros:
 
 id: identificador de usuario
 nombre: nombre de usuario
@@ -215,7 +222,7 @@ foto: foto o ruta de la imagen de perfil
 pedidos: arreglo con los ultimos pedidos que realizó
 
 2. getUsuarioDeJson
-Método estático que recibe un objeto JSON plano y lo convierte en una instancia de UsuarioModel. Se utiliza para transformar los datos obtenidos desde el archivo usuarios.json en objetos del modelo.
+   Método estático que recibe un objeto JSON plano y lo convierte en una instancia de UsuarioModel. Se utiliza para transformar los datos obtenidos desde el archivo usuarios.json en objetos del modelo.
 
 ## Controllers
 
@@ -250,9 +257,8 @@ Método estático que recibe un objeto JSON plano y lo convierte en una instanci
 ### EquipoController
 
 1. getEquipo
-
-Obtiene todos los integrantes del equipo desde el archivo JSON y envía la respuesta HTTP.
-Retorna: Envía una respuesta JSON con el array de integrantes o un error
+   Obtiene todos los integrantes del equipo desde el modelo y envía la respuesta HTTP.
+   Retorna: Envía una respuesta JSON con el array de integrantes o un error
 
 ```json
 {
@@ -260,15 +266,29 @@ Retorna: Envía una respuesta JSON con el array de integrantes o un error
   "equipo": "Array de instancias de EquipoModel (vacío si error)"
 }
 ```
+## LoginController 
 
+login
+Recibe el email y la contraseña enviados desde el frontend, valida los datos ingresados y verifica si el usuario existe en el archivo JSON.
+Si las credenciales son correctas, retorna la información del usuario autenticado.
+
+Retorna: Objeto JSON con formato:
+
+```json
+{
+    "id": "Id del usuario",
+    "email": "Email del usuario",
+    "nombre": "Nombre del usuario",
+    "message": "Mensaje de estado"
+}
+```
 ### Utils
 
 ## funciones.js
 
 1. getJson
-
-Lee un archivo JSON desde la ruta especificada y devuelve su contenido parseado como objeto o array de JavaScript.
-Parámetros:
+   Lee un archivo JSON desde la ruta especificada y devuelve su contenido parseado como objeto o array de JavaScript.
+   Parámetros:
 
 ruta: Ruta absoluta al archivo JSON
 
