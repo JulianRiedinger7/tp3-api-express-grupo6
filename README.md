@@ -179,9 +179,24 @@ C. Documentación (Docs) Si la tarea consiste en generar o modificar documentaci
 - stock: Cantidad de licencias disponibles
 - precio: Precio en Pesos
 
-2. getServiciosDeJson
+2. getJson
    Metodo estatico que recibe un JSON plano y lo convierte en una instancia de ServiciosModel.
    Retorna un objeto del tipo ServiciosModel
+   
+```json
+{    
+    "id": 1,
+    "nombre": "Ejemplo",
+    "descripcion": "Esto es una descripcion",
+    "imagen": "juego.jpg",
+    "puntaje": 4,
+    "stock": 2,
+    "precio": 1235.20
+}
+```
+
+4. #privateGetServicioDeJson (objeto)
+   Metodo privado que recibe un objeto y devuelve a la clase una instancia de su misma clase.
 
 ### EquipoModel
 
@@ -255,27 +270,54 @@ Retorna un objeto del tipo PedidosModel.
 1. getServicios
    Obtiene todos los servicios desde el archivo JSON y envía la respuesta HTTP.
    Retorna: Envía una respuesta JSON con el array de servicios o un error
-
-2. getJson
-   Lee el archivo JSON desde la ruta especificada y lo convierte en una lista de instancias de ServiciosModel
-   Retorna: Objeto con formato:
-
 ```json
-{
-    "codigo": Codigo HTTP (200 ok o 500 Error),
-    "servicios": Array de instancias de 'ServiciosModel' (vacio si error)
-}
+[ {    
+    "id": 1,
+    "nombre": "Ejemplo",
+    "descripcion": "Esto es una descripcion",
+    "imagen": "juego.jpg",
+    "puntaje": 4,
+    "stock": 2,
+    "precio": 1235.20
+  },
+  {    
+    "id": 1,
+    "nombre": "Ejemplo",
+    "descripcion": "Esto es una descripcion",
+    "imagen": "juego.jpg",
+    "puntaje": 4,
+    "stock": 2,
+    "precio": 1235.20
+  }
+]
 ```
+
+
 
 3. getPorNombre
    A partir del un string recibido por parametro, realiza un filtrado y retorna un json con las coincidencias.
    Retorna: Objeto con formato:
 
 ```json
-{
-    "codigo": Codigo HTTP (200 ok, 500 Error, 400 o 404 si es error del cliente),
-    "servicios": Array de instancias de 'ServiciosModel' (vacio si error)
-}
+[ {    
+    "id": 1,
+    "nombre": "Ejemplo",
+    "descripcion": "Esto es una descripcion",
+    "imagen": "juego.jpg",
+    "puntaje": 4,
+    "stock": 2,
+    "precio": 1235.20
+  },
+  {    
+    "id": 1,
+    "nombre": "Ejemplo",
+    "descripcion": "Esto es una descripcion",
+    "imagen": "juego.jpg",
+    "puntaje": 4,
+    "stock": 2,
+    "precio": 1235.20
+  }
+]
 ```
 4. getServiciosID
    Devuelve el servicio al introudicr su valor de ID. En caso de no encontrar el servicio devuelve los errores correspondientes. 
