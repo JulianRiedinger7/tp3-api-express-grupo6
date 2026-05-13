@@ -77,6 +77,7 @@ Devuelve los datos del usuario si es correcto, o 401 si falla
 Frontend
 
 Página nueva pages/login.html con formulario de email y contraseña
+Refactoreo de header para incluir botón de Login
 Función asíncrona que hace fetch con method: POST y body: JSON.stringify(...)
 Si el login es exitoso, guarda el id del usuario en localStorage y redirige al perfil
 
@@ -265,7 +266,22 @@ pedidos: arreglo con los ultimos pedidos que realizó
   "equipo": "Array de instancias de EquipoModel (vacío si error)"
 }
 ```
+## LoginController 
 
+login
+Recibe el email y la contraseña enviados desde el frontend, valida los datos ingresados y verifica si el usuario existe en el archivo JSON.
+Si las credenciales son correctas, retorna la información del usuario autenticado.
+
+Retorna: Objeto JSON con formato:
+
+```json
+{
+    "id": "Id del usuario",
+    "email": "Email del usuario",
+    "nombre": "Nombre del usuario",
+    "message": "Mensaje de estado"
+}
+```
 ### Utils
 
 ## funciones.js
