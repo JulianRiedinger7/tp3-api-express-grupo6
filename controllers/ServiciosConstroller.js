@@ -39,12 +39,12 @@ const getPorNombre = async (req, res) => {
   } else {
     try {
       const serviciosJson = await ServiciosModel.getJson(RUTA_JSON_SERVICIOS)
-      const jsonFiltrado = serviciosJson.filter(ser => ser.nombre.toLowerCase().includes(nombre.toLowerCase()))
+      const jsonFiltrado = serviciosJson.filter((ser) =>
+        ser.nombre.toLowerCase().includes(nombre.toLowerCase())
+      )
       console.log(new Date().toLocaleString() + ` - jsonFiltrado: ${JSON.stringify(jsonFiltrado)}`)
       if (jsonFiltrado.length === 0) {
-        console.log(
-          new Date().toLocaleString() + ' - ' + HTTP_ERROR_NO_ENCONTRADO
-        )
+        console.log(new Date().toLocaleString() + ' - ' + HTTP_ERROR_NO_ENCONTRADO)
         salida = { codigo: HTTP_ERROR_NO_ENCONTRADO, servicios: [] }
       } else {
         console.log(new Date().toLocaleString() + ' - ' + HTTP_OK)
@@ -70,25 +70,17 @@ const getServiciosID = async (req, res) => {
     salida = { codigo: HTTP_ERROR_NO_ENCONTRADO, servicio: {} } // salida es una caja q pongo lo que le quiero avisar al usaurio
   } else {
     try {
-      const servicio = await fs.readFile(RUTA_JSON_SERVICIOS, 'utf-8') // abre el archivo json, definida RURA_JSON_SERVICIOS arriba como cte
-      const serviciosJson = JSON.parse(servicio)
-      const jsonFiltrado = serviciosJson.find(
-        (servicio) => servicio.id === parseInt(id)
-      )
-      console.log(
-        new Date().toLocaleString() +
-          ` - jsonFiltrado: ${JSON.stringify(jsonFiltrado)}`
-      )
+      const servicios = await ServiciosModel.getJson(RUTA_JSON_SERVICIOS) // abre el archivo json, definida RURA_JSON_SERVICIOS arriba como cte
+      const jsonFiltrado = servicios.find((servicio) => servicio.id === parseInt(id))
+      console.log(new Date().toLocaleString() + ` - jsonFiltrado: ${JSON.stringify(jsonFiltrado)}`)
       if (!jsonFiltrado) {
-        console.log(
-          new Date().toLocaleString() + ' - ' + HTTP_ERROR_NO_ENCONTRADO
-        )
+        console.log(new Date().toLocaleString() + ' - ' + HTTP_ERROR_NO_ENCONTRADO)
         salida = { codigo: HTTP_ERROR_NO_ENCONTRADO, servicio: {} }
       } else {
         console.log(new Date().toLocaleString() + ' - ' + HTTP_OK)
         salida = {
           codigo: HTTP_OK,
-          servicio: ServiciosModel.getServicioDeJson(jsonFiltrado)
+          servicio: jsonFiltrado
         }
       }
     } catch (error) {
