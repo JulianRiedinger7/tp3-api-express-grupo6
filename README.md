@@ -224,6 +224,30 @@ pedidos: arreglo con los ultimos pedidos que realizó
 2. getUsuarioDeJson
    Método estático que recibe un objeto JSON plano y lo convierte en una instancia de UsuarioModel. Se utiliza para transformar los datos obtenidos desde el archivo usuarios.json en objetos del modelo.
 
+### PedidosModel
+
+1. Constructor
+
+Crea una instancia de PedidosModel.
+Detalle de parámetros:
+
+- id: Identificador único del pedido (número incremental)
+- producto: ID del servicio solicitado
+- nombre: Nombre del cliente
+- apellido: Apellido del cliente
+- email: Correo electrónico del cliente
+- calle: Calle del domicilio de entrega
+- numero: Número del domicilio de entrega
+- ciudad: Ciudad del domicilio de entrega
+- CP: Código postal del domicilio de entrega
+- opcionesDePagopago: Método de pago seleccionado (débito o crédito)
+
+2. getPedidoDeJson
+
+Método estático que recibe un objeto JSON plano y lo convierte en una instancia de PedidosModel.
+Se utiliza para transformar los datos obtenidos desde el archivo pedidos.json en objetos del modelo.
+Retorna un objeto del tipo PedidosModel.
+
 ## Controllers
 
 ### ServiciosController
@@ -266,9 +290,10 @@ pedidos: arreglo con los ultimos pedidos que realizó
   "equipo": "Array de instancias de EquipoModel (vacío si error)"
 }
 ```
-## LoginController 
+### LoginController 
 
-login
+1. login
+
 Recibe el email y la contraseña enviados desde el frontend, valida los datos ingresados y verifica si el usuario existe en el archivo JSON.
 Si las credenciales son correctas, retorna la información del usuario autenticado.
 
@@ -282,6 +307,44 @@ Retorna: Objeto JSON con formato:
     "message": "Mensaje de estado"
 }
 ```
+
+### PedidosController
+
+1. realizarPedido
+
+Controlador asíncrono que maneja el endpoint POST /pedidos.
+Recibe los datos del formulario de pedido desde el frontend, valida los campos obligatorios,
+verifica la disponibilidad de stock del servicio seleccionado, registra el nuevo pedido
+en pedidos.json y devuelve una respuesta al cliente.
+
+Retorna una respuesta JSON con la confirmación del pedido o un error.
+
+```json
+{
+  "mensaje": "Pedido realizado con éxito.",
+  "detalle": {
+    "producto": "Nombre del servicio",
+    "precioUnitario": "Precio en pesos",
+    "total": "Precio total",
+    "cliente": "Nombre y apellido del cliente",
+    "email": "Correo electrónico del cliente",
+    "direccion": "Calle, número, ciudad y CP"
+  }
+}
+```
+
+Códigos HTTP posibles:
+
+- 200: Pedido registrado con éxito
+- 400: Faltan campos obligatorios o el servicio no tiene stock
+- 404: El ID del servicio no existe en servicios.json
+- 500: Error interno del servidor
+
+Archivos que utiliza:
+
+- data/servicios.json — lectura: verifica existencia y stock del servicio solicitado
+- data/pedidos.json — lectura y escritura: obtiene el historial de pedidos y guarda el nuevo
+
 ### Utils
 
 ## funciones.js
