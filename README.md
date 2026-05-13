@@ -277,6 +277,8 @@ Retorna un objeto del tipo PedidosModel.
     "servicios": Array de instancias de 'ServiciosModel' (vacio si error)
 }
 ```
+4. getServiciosID
+   Devuelve el servicio al introudicr su valor de ID. En caso de no encontrar el servicio devuelve los errores correspondientes. 
 
 ### EquipoController
 
