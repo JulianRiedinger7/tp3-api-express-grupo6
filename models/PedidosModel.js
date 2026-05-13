@@ -1,16 +1,5 @@
 class PedidosModel {
-  constructor(
-    id,
-    producto,
-    nombre,
-    apellido,
-    email,
-    calle,
-    numero,
-    ciudad,
-    CP,
-    opciones_de_pago
-  ) {
+  constructor (id, producto, nombre, apellido, email, calle, numero, ciudad, CP, opcionesDePago) {
     this.id = id
     this.producto = producto
     this.nombre = nombre
@@ -20,10 +9,10 @@ class PedidosModel {
     this.numero = numero
     this.ciudad = ciudad
     this.CP = CP
-    this.opciones_de_pago = opciones_de_pago
+    this.opcionesDePago = opcionesDePago
   }
 
-  static getPedidoDeJson(objeto) {
+  static getPedidoDeJson (objeto) {
     return new PedidosModel(
       objeto.id,
       objeto.producto,
