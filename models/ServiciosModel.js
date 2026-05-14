@@ -1,7 +1,7 @@
 const fs = require('fs').promises
 
 class ServiciosModel {
-  // Constructor
+  // Constructor de clase
   constructor (id, nombre, descripcion, rutaImagen, puntaje, stock, precio) {
     this.id = id
     this.nombre = nombre

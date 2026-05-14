@@ -21,7 +21,7 @@ const getPerfil = async (req, res) => {
       if (!perfil) {
         salida = { codigo: HTTP_ERROR_NO_ENCONTRADO, perfil: {} }
       } else {
-        salida = { codigo: HTTP_OK, perfil: perfil }
+        salida = { codigo: HTTP_OK, perfil }
       }
     } catch (error) {
       console.log(new Date().toLocaleString() + ' - ' + error)
