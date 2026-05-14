@@ -178,9 +178,24 @@ C. Documentación (Docs) Si la tarea consiste en generar o modificar documentaci
 - stock: Cantidad de licencias disponibles
 - precio: Precio en Pesos
 
-2. getServiciosDeJson
+2. getJson
    Metodo estatico que recibe un JSON plano y lo convierte en una instancia de ServiciosModel.
    Retorna un objeto del tipo ServiciosModel
+   
+```json
+{    
+    "id": 1,
+    "nombre": "Ejemplo",
+    "descripcion": "Esto es una descripcion",
+    "imagen": "juego.jpg",
+    "puntaje": 4,
+    "stock": 2,
+    "precio": 1235.20
+}
+```
+
+4. #privateGetServicioDeJson (objeto)
+   Metodo privado que recibe un objeto y devuelve a la clase una instancia de su misma clase.
 
 ### EquipoModel
 
@@ -223,6 +238,30 @@ pedidos: arreglo con los ultimos pedidos que realizó
 2. getUsuarioDeJson
    Método estático que recibe un objeto JSON plano y lo convierte en una instancia de UsuarioModel. Se utiliza para transformar los datos obtenidos desde el archivo usuarios.json en objetos del modelo.
 
+### PedidosModel
+
+1. Constructor
+
+Crea una instancia de PedidosModel.
+Detalle de parámetros:
+
+- id: Identificador único del pedido (número incremental)
+- producto: ID del servicio solicitado
+- nombre: Nombre del cliente
+- apellido: Apellido del cliente
+- email: Correo electrónico del cliente
+- calle: Calle del domicilio de entrega
+- numero: Número del domicilio de entrega
+- ciudad: Ciudad del domicilio de entrega
+- CP: Código postal del domicilio de entrega
+- opcionesDePagopago: Método de pago seleccionado (débito o crédito)
+
+2. getPedidoDeJson
+
+Método estático que recibe un objeto JSON plano y lo convierte en una instancia de PedidosModel.
+Se utiliza para transformar los datos obtenidos desde el archivo pedidos.json en objetos del modelo.
+Retorna un objeto del tipo PedidosModel.
+
 ## Controllers
 
 ### ServiciosController
@@ -230,28 +269,57 @@ pedidos: arreglo con los ultimos pedidos que realizó
 1. getServicios
    Obtiene todos los servicios desde el archivo JSON y envía la respuesta HTTP.
    Retorna: Envía una respuesta JSON con el array de servicios o un error
-
-2. getJson
-   Lee el archivo JSON desde la ruta especificada y lo convierte en una lista de instancias de ServiciosModel
-   Retorna: Objeto con formato:
-
 ```json
-{
-    "codigo": Codigo HTTP (200 ok o 500 Error),
-    "servicios": Array de instancias de 'ServiciosModel' (vacio si error)
-}
+[ {    
+    "id": 1,
+    "nombre": "Ejemplo",
+    "descripcion": "Esto es una descripcion",
+    "imagen": "juego.jpg",
+    "puntaje": 4,
+    "stock": 2,
+    "precio": 1235.20
+  },
+  {    
+    "id": 1,
+    "nombre": "Ejemplo",
+    "descripcion": "Esto es una descripcion",
+    "imagen": "juego.jpg",
+    "puntaje": 4,
+    "stock": 2,
+    "precio": 1235.20
+  }
+]
 ```
+
+
 
 3. getPorNombre
    A partir del un string recibido por parametro, realiza un filtrado y retorna un json con las coincidencias.
    Retorna: Objeto con formato:
 
 ```json
-{
-    "codigo": Codigo HTTP (200 ok, 500 Error, 400 o 404 si es error del cliente),
-    "servicios": Array de instancias de 'ServiciosModel' (vacio si error)
-}
+[ {    
+    "id": 1,
+    "nombre": "Ejemplo",
+    "descripcion": "Esto es una descripcion",
+    "imagen": "juego.jpg",
+    "puntaje": 4,
+    "stock": 2,
+    "precio": 1235.20
+  },
+  {    
+    "id": 1,
+    "nombre": "Ejemplo",
+    "descripcion": "Esto es una descripcion",
+    "imagen": "juego.jpg",
+    "puntaje": 4,
+    "stock": 2,
+    "precio": 1235.20
+  }
+]
 ```
+4. getServiciosID
+   Devuelve el servicio al introudicr su valor de ID. En caso de no encontrar el servicio devuelve los errores correspondientes. 
 
 ### EquipoController
 
@@ -265,9 +333,10 @@ pedidos: arreglo con los ultimos pedidos que realizó
   "equipo": "Array de instancias de EquipoModel (vacío si error)"
 }
 ```
-## LoginController 
+### LoginController 
 
-login
+1. login
+
 Recibe el email y la contraseña enviados desde el frontend, valida los datos ingresados y verifica si el usuario existe en el archivo JSON.
 Si las credenciales son correctas, retorna la información del usuario autenticado.
 
@@ -281,6 +350,44 @@ Retorna: Objeto JSON con formato:
     "message": "Mensaje de estado"
 }
 ```
+
+### PedidosController
+
+1. realizarPedido
+
+Controlador asíncrono que maneja el endpoint POST /pedidos.
+Recibe los datos del formulario de pedido desde el frontend, valida los campos obligatorios,
+verifica la disponibilidad de stock del servicio seleccionado, registra el nuevo pedido
+en pedidos.json y devuelve una respuesta al cliente.
+
+Retorna una respuesta JSON con la confirmación del pedido o un error.
+
+```json
+{
+  "mensaje": "Pedido realizado con éxito.",
+  "detalle": {
+    "producto": "Nombre del servicio",
+    "precioUnitario": "Precio en pesos",
+    "total": "Precio total",
+    "cliente": "Nombre y apellido del cliente",
+    "email": "Correo electrónico del cliente",
+    "direccion": "Calle, número, ciudad y CP"
+  }
+}
+```
+
+Códigos HTTP posibles:
+
+- 200: Pedido registrado con éxito
+- 400: Faltan campos obligatorios o el servicio no tiene stock
+- 404: El ID del servicio no existe en servicios.json
+- 500: Error interno del servidor
+
+Archivos que utiliza:
+
+- data/servicios.json — lectura: verifica existencia y stock del servicio solicitado
+- data/pedidos.json — lectura y escritura: obtiene el historial de pedidos y guarda el nuevo
+
 ### Utils
 
 ## funciones.js
