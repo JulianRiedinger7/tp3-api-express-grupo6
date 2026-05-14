@@ -17,7 +17,7 @@ static async getPerfilPorId(id) {
 
     const data = await fs.readFile(ruta, 'utf-8')
     const usuarios = JSON.parse(data)
-
+console.log(JSON.stringify(usuarios))
     const usuario = usuarios.find(u => u.id === Number(id))
     if (!usuario) return null
 
@@ -29,9 +29,9 @@ static #crearDesdeJson(obj) {
 obj.id,
 obj.nombre,
 obj.mail,
-obj.fechaRegistro,
+obj.fecha_registro,
 obj.foto,
-      obj.pedidos.slice(-3)   // últimos 3 pedidos
+obj.ultimos_pedidos  // últimos 3 pedidos
     )
 }
 }

@@ -8,8 +8,10 @@ const HTTP_ERROR_NO_ENCONTRADO = 404
 const RUTA_JSON_USUARIOS = path.join(__dirname, '../data/usuarios.json')
 
 const getPerfil = async (req, res) => {
+  console.log(new Date().toLocaleString() + ` - Busco el json en la ruta: ${RUTA_JSON_USUARIOS}`)
   const { id } = req.params
-  let salida
+  console.log(new Date().toLocaleString() + ` - Se recibio: ${id}`)
+  let salida = {}
 
   if (!id || isNaN(id)) {
     salida = { codigo: HTTP_ERROR_USUARIO, perfil: {} }
