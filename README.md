@@ -94,7 +94,6 @@ Frontend
 Página nueva pages/perfil.html
 Lee el id guardado en localStorage por el login
 Función asíncrona que consume GET /perfil/:id y renderiza los datos del usuario
-Si no hay sesión activa (no hay id en localStorage), redirige a login.html
 
 **Julieta Dabús — Formulario de pedido**
 
