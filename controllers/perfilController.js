@@ -1,4 +1,4 @@
-const PerfilModel = require('../models/perfilModel')
+const PerfilModel = require('../models/PerfilModel')
 const path = require('path')
 
 const HTTP_OK = 200
