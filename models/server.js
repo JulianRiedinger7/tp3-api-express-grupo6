@@ -20,7 +20,7 @@ class Server {
     this.app.use('/equipo', require('../routes/equipoRoutes'))
     this.app.use('/login', require('../routes/loginRoutes'))
     this.app.use('/pedidos', require('../routes/pedidosRoutes'))
-    this.app.use('/perfil', require('../routes/perfilRoutes'))
+    this.app.use('/perfil', require('../routes/PerfilRoutes'))
     // manejo de errores
     this.app.use((req, res, next) => {
       return res.status(400).json({ msg: 'Error.' })
