@@ -2,6 +2,8 @@
 
 Bienvenid@ al repositorio del Trabajo Práctico N°3 para la asignatura de Programación 3. En este proyecto el Grupo 6 ha desarrollado una API que administra los datos de Servicios-Pedidos-Usuarios-Equipo para integrarlo con el front del TP1
 
+Link: https://julianriedinger7.github.io/tp3-front-grupo6/
+
 ## 🎯 Objetivos del TP
 
 - Aplicar los conocimientos vistos en clase sobre modularización, Node.js, express y
